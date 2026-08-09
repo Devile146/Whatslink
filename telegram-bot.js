@@ -13,8 +13,8 @@ if (!admin.apps.length) {
 }
 const db = admin.database();
 
-const bot = new TelegramBot(process.env.8232078088:AAFSwzDgQblb4zY1rNmpHQNGe8NBdddSDdk, { polling: true });
-const 5975952682 = process.env.5975952682;
+const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true });
+const ADMIN_CHAT_ID = process.env.ADMIN_CHAT_ID;
 
 console.log('🤖 Bot started');
 
