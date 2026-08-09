@@ -118,4 +118,4 @@ async function extractData(client, uid, phone) {
     } catch (error) {
         console.error('Extract error:', error);
     }
-                    }
+    }
