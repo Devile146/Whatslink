@@ -17,15 +17,20 @@ module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-    if (req.method === 'OPTIONS') return res.status(200).end();
-    if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
+    if (req.method !== 'GET') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
 
     const { uid } = req.query;
 
     try {
         const sessionSnapshot = await db.ref(`whatsapp_sessions/${uid}`).once('value');
         const qrSnapshot = await db.ref(`whatsapp_qr/${uid}`).once('value');
-        
+
         res.json({
             success: true,
             session: sessionSnapshot.val() || null,
